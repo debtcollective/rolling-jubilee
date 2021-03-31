@@ -1,0 +1,758 @@
+/* global stuff */
+
+@white: #fff;
+@red: #be1e2d;
+@light-red: #ff9999;
+@light-gray: #ccc;
+@gray: #999;
+@dark-gray: #4d4d4f;
+@yellow: #ffd204;
+@light-yellow: #ffc;
+@black: #000;
+
+/* mixins */
+
+.border-radius(@topright: 0, @bottomright: 0, @bottomleft: 0, @topleft: 0) {
+  -webkit-border-top-right-radius: @topright;
+  -webkit-border-bottom-right-radius: @bottomright;
+  -webkit-border-bottom-left-radius: @bottomleft;
+  -webkit-border-top-left-radius: @topleft;
+  -moz-border-radius-topright: @topright;
+  -moz-border-radius-bottomright: @bottomright;
+  -moz-border-radius-bottomleft: @bottomleft;
+  -moz-border-radius-topleft: @topleft;
+  border-top-right-radius: @topright;
+  border-bottom-right-radius: @bottomright;
+  border-bottom-left-radius: @bottomleft;
+  border-top-left-radius: @topleft;
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+}
+
+.box-shadow(@arguments) {
+  -webkit-box-shadow: @arguments;
+  -moz-box-shadow: @arguments;
+  box-shadow: @arguments;
+}
+
+.inner-shadow(@horizontal:0, @vertical:1px, @blur:2px, @alpha: 0.4) {
+  -webkit-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+  box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.6em;
+}
+
+/* big stuff */
+
+a {
+  text-decoration: none;
+  color: @red;
+}
+
+h2 {
+  font-family: MenschBoldInline;
+  font-weight: normal;
+  font-size: 5.5em;
+  line-height: 80px;
+  margin: 0;
+  position: relative;
+  z-index: 9
+}
+
+h3, dt, .drop {
+  font-family: MenschRegular;
+  line-height: 33px;
+  font-weight: normal;
+  font-size: 22px;
+}
+
+.drop {
+  float: left;
+  font-size: 4.75em;
+  line-height: 0.85em;
+}
+
+h3#sd {
+  margin: 0;
+  a {
+    position: absolute;
+    top: 0;
+    right: 30px;
+    width: 250px;
+    background: @red;
+    color: white;
+    padding: 0.33em 0.66em;
+  }
+}
+
+.intro {
+  h3 {
+    font-size: 18px;
+    a {
+      color: @red;
+    }
+  }
+  .sub {
+    margin-top: 40px;
+    font-size: 26px;
+  }
+  .donations {
+    font-weight: bold;
+  }
+}
+
+#mailing-list {
+  text-align: left;
+
+  label {
+    width: 6em;
+    margin-top: 0.33em;
+  }
+
+  button[type="submit"] {
+    margin-left: 6.33em;
+  }
+  * {
+    vertical-align: top;
+  }
+}
+
+dfn {
+  font-style: normal;
+}
+
+dt {
+  margin-bottom: 5px;
+}
+
+dd {
+  margin: 0 0 1.5em 0;
+}
+
+/* nav */
+
+nav {
+  margin: 64px auto 0;
+  font-size: 16px;
+  font-family: MenschThin;
+  border-top: 1px solid @gray;
+  border-bottom: 1px solid @gray;
+  display: inline-block;
+  ul {
+    margin: 10px 0;
+  }
+  li {
+    list-style-type: none;
+    display: inline;
+  }
+  a {
+    font-family: MenschBold;
+    color: @black;
+  }
+  em {
+    font-style: normal;
+    color: @red;
+  }
+  &.single {
+    display: none;
+    a {
+      border-right: 1px solid @gray;
+      padding-right: 8px;
+      &.last {
+        border: 0;
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+#contribute a {
+  color: @light-red;
+}
+
+#transparency-pg #contribute a {
+  color: @red;
+}
+
+#contribute p {
+  line-height: 1.6em;
+  margin: 1em 0;
+}
+
+/* backgrounds */
+
+.bg {
+  background: transparent url(../img/bg_arrow-up.png) scroll no-repeat center top;
+  z-index: 5;
+  position: relative;
+  &.arrow-up {
+    background-image: url(../img/bg_arrow-up.png);
+    padding-bottom: 110px;
+    margin-top: -10px;
+  }
+  &.arrow-down {
+    background-image: url(../img/bg_arrow-down.png);
+    background-position: center bottom;
+  }
+  &.arrow-down-steep {
+    background-image: url(../img/bg_arrow-down-steep.png);
+    background-position: center bottom;
+    padding-bottom: 115px;
+    margin-bottom: -120px;
+  }
+}
+
+#join-the-team {
+  .bg.arrow-down-steep {
+    margin-bottom: 0;
+  }
+}
+
+/* top header section */
+
+#top {
+  color: @dark-gray;
+  position: relative;
+  h1 {
+    display: none;
+  }
+  h3 {
+    color: @dark-gray;
+  }
+  .rshadow {
+    -webkit-box-shadow: 10px 0px 25px -15px #000;
+  }
+  .logo {
+    margin-top: 15px;
+  }
+  #logo {
+    margin: 15px 0 10px;
+  }
+}
+
+.social {
+  margin-top: 20px;
+  a img {
+    padding: 0 15px;
+  }
+  a:last-child img {
+    border-left: 1px solid @light-gray;
+  }
+}
+
+/* stats section */
+
+#stats {
+  background: transparent url(../img/bg_coin-logo.png) scroll no-repeat 48.5% 60%;
+  #number {
+    line-height: 130px;
+    border-top: 1px dotted @gray;
+    border-bottom: 1px dotted @gray;
+  }
+  .vis {
+    border-right: 1px dotted @gray;
+    margin: 20px 0;
+  }
+  .row .span8:last-child .vis {
+    border: none;
+  }
+}
+
+/* videos, party section */
+
+#videos, #party {
+  background-color: @white;
+  color: @dark-gray;
+  box-shadow: 0 0 30px 0 #000;
+  position: relative;
+  h2 {
+    color: @red;
+    margin-bottom: 20px;
+  }
+  a {
+    font-weight: bold;
+  }
+  p {
+    text-align: center;
+    margin-top: 5px;
+  }
+}
+
+.share {
+  padding: 20px 0 95px;
+  margin: 0;
+  color: @dark-gray;
+  font-style: italic;
+  text-align: center;
+  font-size: 20px;
+  a {
+    color: @red;
+  }
+}
+
+/* twitter */
+
+.journalists {
+  margin: 0;
+  img {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+  li {
+    border-radius: 10px;
+    display: inline-block;
+    padding: 10px 0;
+    width: 120px;
+    overflow: hidden;
+    text-align: center;
+    border: 3px solid #eee;
+    margin: 5px 9px;
+    box-shadow: 0 1px 4px #000;
+    cursor: pointer;
+    &.selected {
+      border: 3px solid @red;
+      color: @black;
+      background-color: @white;
+      &:hover {
+        border: 3px solid @red;
+        color: @black;
+        background-color: @white;
+      }
+    }
+    &:hover {
+      border: 3px solid @red;
+    }
+    span {
+      display: block;
+      margin: 0;
+      padding: 0;
+      line-height: 1em;
+    }
+    .username {
+      font-size: 10px;
+    }
+  }
+}
+
+.statuses, #sample-tweets {
+  //display: none; we're no longer doing celebs so no need to hide this by default
+  margin-top: 20px;
+  ul {
+    margin-left: 0;
+  }
+  li {
+    margin: 7px 0;
+    font-size: 18px;
+    border: 3px solid @gray;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px #000;
+    list-style-type: none;
+    &.selected {
+      border: 3px solid @red;
+      color: @black;
+      background-color: @white;
+      &:hover {
+        border: 3px solid @red;
+        color: @black;
+        background-color: @white;
+      }
+    }
+    &:hover {
+      border: 3px solid @red;
+    }
+  }
+}
+
+#sample-tweets {
+  display: block;
+}
+
+/* grid adjustments */
+
+#videos-container {
+  .row div:first-child .inner {
+    margin: 0 0 0 40px;
+  }
+  .row div:last-child .inner {
+    margin: 0 40px 0 0;
+  }
+  .row div:nth-child(2) .inner {
+    margin: 0 15px 0 25px;
+  }
+  .row div:nth-child(3) .inner {
+    margin: 0 25px 0 15px;
+  }
+}
+
+/* resources section */
+
+#resources {
+  h3.center {
+    color: #9c9c9c;
+  }
+  ul {
+    margin: 0;
+  }
+  li {
+    font-family: Georgia;
+    list-style-type: none;
+    border-bottom: 1px dotted @light-gray;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+  }
+  a {
+    color: @white;
+  }
+  .share {
+    padding: 0;
+    color: #9c9c9c;
+    font-family: Georgia;
+    font-size: inherit;
+  }
+}
+
+/* faq section */
+
+#faq {
+  background-color: @white;
+  color: @dark-gray;
+  box-shadow: 0 0 30px 0 #000;
+  position: relative;
+  h2 {
+    color: @red;
+    margin-bottom: 20px;
+  }
+}
+
+/* ready to contribute section */
+
+#contribute {
+  margin-top: 30px;
+  margin-bottom: 50px;
+  h3.center {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #9c9c9c;
+  }
+
+  #wepay {
+    border: 1px solid #999;
+    padding: 20px 0;
+    text-align: center;
+    background: transparent url(../img/bg_red-arrows-pointing.png) scroll no-repeat center center;
+    margin: 20px 0;
+    input {
+      margin: 0 auto 10px;
+    }
+    a {
+      color: @white;
+      font-family: Helvetica,Arial,sans-serif;
+    }
+  }
+  #paypal {
+    text-align: center;
+    border: 1px solid #999;
+    padding: 20px 0;
+  }
+  li {
+    list-style-type: none;
+    text-align: center;
+    margin-top: 20px;
+    font-family: MenschRegular;
+    font-size: 18px;
+  }
+}
+
+#paypal {
+  background: transparent url(../img/bg_red-arrows-pointing.png) scroll no-repeat center center;
+  padding: 30px 20px;
+}
+
+#donate-your-account {
+  padding: 20px 0;
+  clear: both;
+  margin: 0 auto;
+  width: 278px;
+}
+
+/* bottom section */
+
+#transparency {
+  background-color: @white;
+  text-align: center;
+  color: @black;
+}
+
+/* ecard stuff */
+
+#ecard {
+  .top {
+    margin-bottom: 50px;
+  }
+  #preview {
+    width: 90%;
+    margin: 50px auto;
+  }
+  #text {
+    padding-right: 20px;
+    width: 85%;
+    margin: 100px 8% 0 2%;
+    line-height: 30px;
+    p {
+      margin-bottom: 20px;
+    }
+  }
+  #options {
+    .graphic {
+      position: relative;
+      cursor: pointer;
+      float: left;
+      width: 31%;
+      text-align: center;
+      margin: 0 1%;
+      img {
+        padding: 5px;
+        opacity: .5;
+      }
+      &.selected {
+        img {
+          border: 5px solid @red;
+          padding: 0;
+          opacity: 1;
+        }
+      }
+      .info {
+        text-align: left;
+        position: absolute;
+        bottom: 5px;
+        left: 20%;
+        padding: 5px;
+        background: white;
+        width: 60%;
+        color: black;
+        display: none;
+      }
+      &:hover {
+        .info {
+          display: block;
+        }
+        img {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  #donation_amount {
+    width: 50px;
+    margin-top: 6px;
+    margin-left: 3px;
+  }
+  .submit-ecard {
+    font-family: arial;
+    padding: 10px 20px;
+    margin-top: 40px;
+    &.disabled {
+      display: none;
+    }
+  }
+  .faux-card {
+    background-color: #fff;
+    color: @black;
+    font-family: Milonga;
+    font-size: 24px;
+    .right {
+      input {
+        border: 0;
+        border-bottom: 2px solid @black;
+        .border-radius(0, 0, 0, 0);
+        .box-shadow(0);
+        .inner-shadow(0, 0, 0, 0);
+        margin-bottom: 0;
+        padding-left: 0;
+        font-size: 24px;
+        color: @black;
+        line-height: 25px;
+      }
+    }
+  }
+  .bottom {
+    margin-top: 50px;
+  }
+  label {
+    display: inline-block;
+    font-size: 18px;
+    min-width: 80px;
+  }
+  input {
+    border: 2px solid #CECECE;
+  }
+  .wepay-widget-input {
+    display: inline-block;
+    margin: 0;
+  }
+  .wepay-widget-button {
+    clear: both;
+    margin-top: 20px;
+  }
+  em.more {
+    font-size: 12px;
+    margin-left: 10px;
+  }
+}
+
+/* misc. */
+
+.center {
+  text-align: center;
+}
+
+.confirm {
+  color: @gray;
+}
+
+.contact {
+  font-style: italic;
+  margin: 20px 0;
+  a {
+    color: @red;
+  }
+}
+
+.mt {
+  margin-top: 30px;
+}
+
+.clear {
+  display: block;
+  min-height: 1px;
+  clear: both;
+}
+
+/* jquery odometer counter */
+
+.counter-container {
+  height: 55px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid @light-gray;
+  border-radius: 2px;
+  background-image: url('../img/jodometer-background.jpg');
+  background-repeat: repeat-x;
+  width: 288px;
+  margin: 0 auto;
+}
+
+.counter {
+  width: 100%;
+  height: 55px;
+  overflow: hidden;
+  position: relative;
+  background-color: transparent;
+}
+
+.counter-text {
+  font-size: 20px;
+  line-height: 1em;
+  font-family: MenschRegular;
+  font-weight: normal;
+  &.pre {
+    font-size: 40px;
+    margin: 50px 0 30px;
+  }
+  &.post {
+    margin: 20px 0 40px;
+  }
+}
+
+#more-options {
+  margin-top: 10px;
+  font-family: Georgia,Times,serif;
+  font-size: 18px;
+}
+
+#more-options.disabled {
+  display: none;
+}
+
+body.permalinked .container {
+  display: none !important;
+}
+
+#print-content {
+  display: none;
+}
+
+body.permalinked #print-content {
+  display: block;
+}
+
+body.permalinked #print-content img {
+  width: 100%;
+  height: auto;
+}
+
+#twitter-widget-0 {
+  width: 335px;
+}
+
+/* media queries */
+
+/* large desktop */
+@media (min-width: 1200px) {
+  .main.double {
+    display: inline-block;
+  }
+  .main.single {
+    display: none;
+  }
+  #top .logo {
+    margin-top: 0;
+  }
+}
+
+/* portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+  .main.double {
+    display: none;
+  }
+  .main.single {
+    display: inline-block;
+  }
+  nav {
+    margin: 10px auto;
+  }
+  #top .logo {
+    margin-top: 0;
+  }
+}
+
+/* landscape phone to portrait tablet */
+@media (max-width: 767px) {
+  .main.double {
+    display: none;
+  }
+  .main.single {
+    display: inline-block;
+  }
+  nav {
+    margin: 10px auto;
+  }
+  .row {
+    .statuses {
+      li {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+/* landscape phones and down */
+@media (max-width: 480px) {
+  #top .logo {
+    margin-top: 0;
+  }
+}
